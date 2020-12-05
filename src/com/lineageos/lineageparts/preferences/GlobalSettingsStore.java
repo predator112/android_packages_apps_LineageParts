@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.bootleggers.dumpster.preferences;
+package com.lineageos.lineageparts.preferences;
 
 import android.content.ContentResolver;
 import android.preference.PreferenceDataStore;
