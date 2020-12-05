@@ -435,6 +435,9 @@
     <string name="status_bar_system_icons_title">System icons</string>
     <string name="status_bar_system_icons_summary">Control which status bar icons are shown</string>
 
+    <!-- Preferences Categories -->   
+    <string name="cat_general_ui">UI tweaks</string>
+
     <!-- Status bar - Clock -->
     <string name="status_bar_clock_title">Clock</string>
 
@@ -685,4 +688,12 @@
     <string name="sms_security_check_limit_summary">Apps can send %s messages in 1 minute before requiring confirmation</string>
     <string name="sms_security_check_limit_summary_none">Apps are not allowed to send any messages without confirmation</string>
     <string name="sms_security_check_limit_always_confirm">Always confirm</string>
+
+    <!-- Old mobile icon -->
+    <string name="use_old_mobiletype_title">Use old mobile type style</string>
+    <string name="use_old_mobiletype_summary">Show the small signal icon style used since android KitKat</string>
+
+    <!-- Data Disabled Icon -->
+    <string name="data_disabled_icon_title">Show data disabled icon</string>
+    <string name="data_disabled_icon_summary">Display the cross next to statusbar when data is disabled</string>
 </resources>
