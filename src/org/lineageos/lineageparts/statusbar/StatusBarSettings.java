@@ -47,7 +47,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
 
     private static final String ICON_BLACKLIST = "icon_blacklist";
 
-    private static final String KEY_USE_OLD_MOBILETYPE = "use_old_mobiletype";
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
@@ -67,8 +66,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
     private LineageSystemSettingListPreference mStatusBarAmPm;
     private LineageSystemSettingListPreference mStatusBarBattery;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
-    private SwitchPreference mUseOldMobileType;
-    private boolean mConfigUseOldMobileType;
 
     private PreferenceCategory mStatusBarBatteryCategory;
     private PreferenceCategory mStatusBarClockCategory;
@@ -104,13 +101,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
         mQuickPulldown = findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
-
-        mConfigUseOldMobileType = getResources().getBoolean(com.android.internal.R.bool.config_useOldMobileIcons);
-        int useOldMobileIcons = (!mConfigUseOldMobileType ? 0 : 1);
-        mUseOldMobileType = (SwitchPreference) findPreference(KEY_USE_OLD_MOBILETYPE);
-        mUseOldMobileType.setChecked((Settings.System.getInt(resolver,
-                Settings.System.USE_OLD_MOBILETYPE, useOldMobileIcons) == 1));
-        mUseOldMobileType.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -178,11 +168,6 @@ public class StatusBarSettings extends SettingsPreferenceFragment
                 break;
         }
         return true;
-        } else if (preference == mUseOldMobileType) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.USE_OLD_MOBILETYPE, value ? 1 : 0);
-            return true;
     }
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
